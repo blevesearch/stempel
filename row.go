@@ -17,7 +17,7 @@ package stempel
 import (
 	"fmt"
 
-	"github.com/mschoch/stempel/javadata"
+	"github.com/blevesearch/stempel/javadata"
 )
 
 type row struct {

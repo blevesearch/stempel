@@ -17,7 +17,7 @@ package stempel
 import (
 	"fmt"
 
-	"github.com/mschoch/stempel/javadata"
+	"github.com/blevesearch/stempel/javadata"
 )
 
 // multiTrie represents a trie of tries.  When using the multiTrie, each trie

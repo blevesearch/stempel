@@ -18,7 +18,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mschoch/stempel/javadata"
+	"github.com/blevesearch/stempel/javadata"
 )
 
 // Trie is the external interface to work with the stempel trie

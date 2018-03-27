@@ -23,7 +23,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mschoch/stempel"
+	"github.com/blevesearch/stempel"
 	"github.com/rogpeppe/go-charset/charset"
 	_ "github.com/rogpeppe/go-charset/data"
 )
