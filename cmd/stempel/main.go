@@ -49,7 +49,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		defer file.Close()
+		defer func() {
+			cerr := file.Close()
+			if cerr != nil {
+				log.Fatal(cerr)
+			}
+		}()
 		reader = file
 	}
 
@@ -67,7 +72,12 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		defer writer.Close()
+		defer func() {
+			cerr := writer.Close()
+			if cerr != nil {
+				log.Fatal(cerr)
+			}
+		}()
 	}
 
 	scanner := bufio.NewScanner(reader)

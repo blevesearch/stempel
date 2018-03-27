@@ -53,7 +53,12 @@ func TestStem(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer wordfile.Close()
+	defer func() {
+		cerr := wordfile.Close()
+		if cerr != nil {
+			t.Fatal(cerr)
+		}
+	}()
 
 	cr, err := charset.NewReader("iso-8859-2", wordfile)
 	if err != nil {
