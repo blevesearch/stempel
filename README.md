@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/blevesearch/stempel.svg?branch=master)](https://travis-ci.org/blevesearch/stempel)
 [![GoDoc](https://godoc.org/github.com/blevesearch/stempel?status.svg)](https://godoc.org/github.com/blevesearch/stempel)
+[![Go Report Card](https://goreportcard.com/badge/github.com/blevesearch/stempel)](https://goreportcard.com/report/github.com/blevesearch/stempel)
 
 A Go implementation of the [Stempel](http://www.getopt.org/stempel/) stemmer, an algorithmic stemmer frequently used with (but not limited to) the Polish language.
 
