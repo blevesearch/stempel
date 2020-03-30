@@ -20,8 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rogpeppe/go-charset/charset"
-	_ "github.com/rogpeppe/go-charset/data"
+	"golang.org/x/text/encoding/charmap"
 )
 
 func TestEmpty(t *testing.T) {
@@ -60,10 +59,7 @@ func TestStem(t *testing.T) {
 		}
 	}()
 
-	cr, err := charset.NewReader("iso-8859-2", wordfile)
-	if err != nil {
-		t.Fatal(err)
-	}
+	cr := charmap.ISO8859_2.NewDecoder().Reader(wordfile)
 
 	scanner := bufio.NewScanner(cr)
 	for scanner.Scan() {

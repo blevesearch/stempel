@@ -22,10 +22,10 @@ import (
 	"log"
 	"os"
 	"strings"
+	"unicode"
 
 	"github.com/blevesearch/stempel"
-	"github.com/rogpeppe/go-charset/charset"
-	_ "github.com/rogpeppe/go-charset/data"
+	"golang.org/x/text/encoding/charmap"
 )
 
 var input = flag.String("i", "", "input file")
@@ -59,7 +59,7 @@ func main() {
 	}
 
 	if *encoding != "" {
-		reader, err = charset.NewReader(*encoding, reader)
+		reader, err = findEncoding(*encoding, reader)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -97,4 +97,27 @@ func main() {
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func findEncoding(encoding string, r io.Reader) (io.Reader, error) {
+	// walk through all charmaps looking for a match
+	for _, enc := range charmap.All {
+		if cm, ok := enc.(*charmap.Charmap); ok {
+			if strings.Map(mapForCompare, cm.String()) == strings.Map(mapForCompare, encoding) {
+				return cm.NewDecoder().Reader(r), nil
+			}
+		}
+	}
+	return nil, fmt.Errorf("no charmap found for encoding %s", encoding)
+}
+
+func mapForCompare(r rune) rune {
+	// remove space and punctuation
+	if unicode.IsSpace(r) {
+		return -1
+	} else if unicode.IsPunct(r) {
+		return -1
+	}
+	// otherwise return lowercase
+	return unicode.ToLower(r)
 }
