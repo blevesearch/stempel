@@ -16,6 +16,7 @@ package stempel
 
 import (
 	"bufio"
+	"compress/gzip"
 	"os"
 	"strings"
 	"testing"
@@ -48,18 +49,29 @@ func TestStem(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	wordfile, err := os.Open("pl/pl_PL.dic")
+	wordFileGz, err := os.Open("pl/pl_PL.dic.gz")
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer func() {
-		cerr := wordfile.Close()
+		cerr := wordFileGz.Close()
 		if cerr != nil {
 			t.Fatal(cerr)
 		}
 	}()
 
-	cr := charmap.ISO8859_2.NewDecoder().Reader(wordfile)
+	wordFile, err := gzip.NewReader(wordFileGz)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer func() {
+		cerr := wordFile.Close()
+		if cerr != nil {
+			t.Fatal(cerr)
+		}
+	}()
+
+	cr := charmap.ISO8859_2.NewDecoder().Reader(wordFile)
 
 	scanner := bufio.NewScanner(cr)
 	for scanner.Scan() {

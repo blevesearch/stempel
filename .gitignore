@@ -10,10 +10,3 @@
 *.test
 tags
 /cmd/stempel/stempel
-/pl/pl_PL.dic
-/pl/pl_PL.aff
-/pl/pl_PL.zip
-/pl/stemmer_20000.tbl
-/pl/sjp-myspell-pl-20180322.zip
-/pl/spell.txt
-/pl/README_pl_PL.txt

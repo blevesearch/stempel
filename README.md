@@ -7,12 +7,10 @@
 
 A Go implementation of the [Stempel](http://www.getopt.org/stempel/) stemmer, an algorithmic stemmer frequently used with (but not limited to) the Polish language.
 
-## Usage
-
-To use this to stem Polish, you must acquire the stemming tables.  These files are not distributed in this repository.  Instructions on how to acquire them are in the `pl` directory.
-
 ## License
 
 This Go implementation is distributed under the Apache 2 license.
 
 This product is based on software developed by the [Egothor Project](http://egothor.sf.net/).
+
+This project now also includes the original stemming tables pretrained by Andrzej Białecki, and [as noted by Lucene](https://github.com/apache/lucene-solr/blob/f41eabdc5fa091079b83cdc7813cdcfb05dfbf46/lucene/analysis/stempel/src/java/overview.html#L46-L47) the tables and other additions are covered by Apache License 2.0.
