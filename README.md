@@ -1,6 +1,7 @@
 # stempel
 
-[![Build Status](https://travis-ci.org/blevesearch/stempel.svg?branch=master)](https://travis-ci.org/blevesearch/stempel)
+[![Tests](https://github.com/blevesearch/stempel/workflows/Tests/badge.svg?branch=master&event=push)](https://github.com/blevesearch/stempel/actions?query=workflow%3ATests+event%3Apush+branch%3Amaster)
+[![Lint](https://github.com/blevesearch/stempel/workflows/Lint/badge.svg?branch=master&event=push)](https://github.com/blevesearch/stempel/actions?query=workflow%3ALint+event%3Apush+branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/blevesearch/stempel/badge.svg?branch=master)](https://coveralls.io/github/blevesearch/stempel?branch=master)
 [![GoDoc](https://godoc.org/github.com/blevesearch/stempel?status.svg)](https://godoc.org/github.com/blevesearch/stempel)
 [![Go Report Card](https://goreportcard.com/badge/github.com/blevesearch/stempel)](https://goreportcard.com/report/github.com/blevesearch/stempel)
