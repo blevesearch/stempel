@@ -90,7 +90,7 @@ func main() {
 		buff := []rune(before)
 		diff := trie.GetLastOnPath(buff)
 		buff = stempel.Diff(buff, diff)
-		fmt.Fprintf(writer, string(buff))
+		fmt.Fprint(writer, string(buff))
 		fmt.Fprintln(writer)
 	}
 
